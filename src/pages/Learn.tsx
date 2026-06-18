@@ -22,7 +22,7 @@ import {
   recordAnswer,
   recordStudyTime,
 } from "@/services/db";
-import { updateConsecutiveCorrect, checkOnLessonComplete } from "@/services/achievement";
+import { updateConsecutiveCorrect, checkOnLessonComplete, checkPerfectCourse } from "@/services/achievement";
 import { createRecognition, calculateSimilarity, getScoreFeedback, isSpeechRecognitionSupported } from "@/services/speech";
 import { useAppStore } from "@/store/useAppStore";
 import { useLearnStore } from "@/store/useLearnStore";
@@ -49,6 +49,7 @@ export default function Learn() {
   const [submitted, setSubmitted] = useState(false);
   const [showScript, setShowScript] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
+  const [courseCorrectCount, setCourseCorrectCount] = useState(0);
 
   // 学习计时
   const startTimeRef = useRef<number>(Date.now());
@@ -91,6 +92,7 @@ export default function Learn() {
     setCurrentQIdx(0);
     setSelectedAnswer(null);
     setSubmitted(false);
+    setCourseCorrectCount(0);
   };
 
   const currentLesson = lessons[currentLessonIdx];
@@ -102,6 +104,7 @@ export default function Learn() {
     const isCorrect = selectedAnswer === currentQuestion.correct_answer;
     recordAnswer(isCorrect);
     if (isCorrect) {
+      setCourseCorrectCount((c) => c + 1);
       const result = updateConsecutiveCorrect(true);
       if (result.unlocked.length > 0) {
         showAchievementPopup(result.unlocked[0]);
@@ -122,8 +125,27 @@ export default function Learn() {
         updateProgress(currentLesson.id, "completed", 100, elapsed);
         recordStudyTime(elapsed);
         startTimeRef.current = Date.now();
+
         const newAchs = checkOnLessonComplete();
         if (newAchs.length > 0) showAchievementPopup(newAchs[0]);
+
+        // 如果是课程的最后一个课时，检查满分成就
+        const isLastLesson = currentLessonIdx >= lessons.length - 1;
+        if (isLastLesson && course) {
+          const totalQuestions = lessons.reduce(
+            (sum, l) => sum + getQuestions(l.id).length,
+            0
+          );
+          const perfectAchs = checkPerfectCourse(
+            course.id,
+            totalQuestions,
+            courseCorrectCount
+          );
+          if (perfectAchs.length > 0) {
+            showAchievementPopup(perfectAchs[0]);
+          }
+        }
+
         showNotification("课时学习完成！", "success");
         triggerRefresh();
         if (currentLessonIdx < lessons.length - 1) {

@@ -1,4 +1,5 @@
 import initSqlJs, { type Database, type SqlValue } from "sql.js";
+import { WASM_BASE64 } from "./wasmBinary";
 import type {
   Course,
   Lesson,
@@ -17,7 +18,7 @@ const DB_NAME = "daily_checkin_en";
 const STORE_NAME = "sqlite_db";
 const DB_KEY = "database";
 const DB_VERSION_KEY = "daily_checkin_en_version";
-const DB_VERSION = 3; // 递增此值以强制重置数据库
+const DB_VERSION = 5; // 递增此值以强制重置数据库
 
 let db: Database | null = null;
 
@@ -162,7 +163,10 @@ function initSchema(database: Database): void {
       ('月度冠军', '连续学习 30 天', 'trophy', 'study_days', 30),
       ('完成首课', '完成第一个课时', 'book-open', 'lessons_completed', 1),
       ('学有所成', '完成 10 个课时', 'graduation-cap', 'lessons_completed', 10),
-      ('真题大师', '完成 50 道题目', 'award', 'questions_answered', 50);
+      ('真题大师', '完成 50 道题目', 'award', 'questions_answered', 50),
+      ('2025 I卷满分', '2025年全国一卷听力全部答对', 'crown', 'perfect_course', 1),
+      ('2025 II卷满分', '2025年全国二卷听力全部答对', 'crown', 'perfect_course', 2),
+      ('2026 I卷满分', '2026年全国一卷听力全部答对', 'crown', 'perfect_course', 3);
 
     INSERT OR IGNORE INTO streak_records (id, current_streak, max_streak, updated_at) VALUES
       (1, 0, 0, 0);
@@ -218,9 +222,9 @@ function execute(sql: string, params: SqlValue[] = []): void {
 export async function initDatabase(): Promise<void> {
   if (db) return;
 
-  const SQL = await initSqlJs({
-    locateFile: () => "/sql-wasm.wasm",
-  });
+  // 将 base64 编码的 WASM 解码为 Uint8Array
+  const wasmBinary = Uint8Array.from(atob(WASM_BASE64), (c) => c.charCodeAt(0));
+  const SQL = await initSqlJs({ wasmBinary });
 
   // 检查数据库版本，版本不匹配则清除旧数据
   const savedVersion = localStorage.getItem(DB_VERSION_KEY);
@@ -605,6 +609,10 @@ export function getStudyDaysCount(): number {
     "SELECT COUNT(*) as count FROM study_stats WHERE study_time > 0"
   );
   return result?.count ?? 0;
+}
+
+export function getStudyStreakDays(): number {
+  return calculateStreak();
 }
 
 export function getCompletedLessonsCount(): number {

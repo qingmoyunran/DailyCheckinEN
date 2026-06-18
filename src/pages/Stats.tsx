@@ -22,7 +22,6 @@ import {
 } from "lucide-react";
 import {
   getStatsRange,
-  getStreakRecord,
   getTotalQuestionsAnswered,
   getCompletedLessonsCount,
   getStudyDaysCount,
@@ -31,14 +30,12 @@ import type { StudyStats } from "@/types";
 
 export default function Stats() {
   const [stats30, setStats30] = useState<StudyStats[]>([]);
-  const [streak, setStreak] = useState({ current_streak: 0, max_streak: 0 });
   const [totalQuestions, setTotalQuestions] = useState(0);
   const [completedLessons, setCompletedLessons] = useState(0);
   const [studyDays, setStudyDays] = useState(0);
 
   useEffect(() => {
     setStats30(getStatsRange(30));
-    setStreak(getStreakRecord());
     setTotalQuestions(getTotalQuestionsAnswered());
     setCompletedLessons(getCompletedLessonsCount());
     setStudyDays(getStudyDaysCount());
@@ -109,8 +106,8 @@ export default function Stats() {
         />
         <SummaryCard
           icon={Flame}
-          label="连续打卡"
-          value={`${streak.current_streak}`}
+          label="总打卡"
+          value={`${studyDays}`}
           unit="天"
           color="amber"
         />

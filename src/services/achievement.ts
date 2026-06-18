@@ -72,6 +72,9 @@ export function checkAchievements(metrics: {
       case "questions_answered":
         met = questionsAnswered >= achievement.condition_value;
         break;
+      case "perfect_course":
+        // 由 checkPerfectCourse 单独处理
+        break;
     }
 
     if (met) {
@@ -86,4 +89,28 @@ export function checkAchievements(metrics: {
 // 课程完成时检查成就
 export function checkOnLessonComplete(): Achievement[] {
   return checkAchievements({});
+}
+
+// 检查满分成就（某课程全部课时全部答对）
+export function checkPerfectCourse(
+  courseId: number,
+  totalQuestions: number,
+  correctCount: number
+): Achievement[] {
+  if (totalQuestions === 0 || correctCount < totalQuestions) return [];
+
+  const allAchievements = getAchievements();
+  const unlockedIds = getUnlockedAchievementIds();
+  const newlyUnlocked: Achievement[] = [];
+
+  for (const achievement of allAchievements) {
+    if (unlockedIds.has(achievement.id)) continue;
+    if (achievement.condition_type !== "perfect_course") continue;
+    if (achievement.condition_value === courseId) {
+      unlockAchievement(achievement.id);
+      newlyUnlocked.push(achievement);
+    }
+  }
+
+  return newlyUnlocked;
 }

@@ -14,10 +14,9 @@ import {
   getCoursesWithProgress,
   getTodayStats,
   getWeeklyAccuracy,
-  getStreakRecord,
+  getStudyStreakDays,
   getUserAchievements,
   getAchievements,
-  getStatsRange,
   getLessonsWithProgress,
 } from "@/services/db";
 import type { CourseWithProgress, LessonWithProgress } from "@/types";
@@ -31,7 +30,7 @@ export default function Home() {
     correct_count: 0,
   });
   const [weeklyAccuracy, setWeeklyAccuracy] = useState(0);
-  const [streak, setStreak] = useState({ current_streak: 0, max_streak: 0 });
+  const [studyDays, setStudyDays] = useState(0);
   const [courses, setCourses] = useState<CourseWithProgress[]>([]);
   const [continueLesson, setContinueLesson] = useState<{
     course: CourseWithProgress;
@@ -51,7 +50,7 @@ export default function Home() {
     setTodayStats(stats);
 
     setWeeklyAccuracy(getWeeklyAccuracy());
-    setStreak(getStreakRecord());
+    setStudyDays(getStudyStreakDays());
 
     const allCourses = getCoursesWithProgress();
     setCourses(allCourses);
@@ -94,7 +93,8 @@ export default function Home() {
   const formatTime = (seconds: number) => {
     if (seconds < 60) return `${seconds}s`;
     const min = Math.floor(seconds / 60);
-    return `${min}min`;
+    const sec = seconds % 60;
+    return sec > 0 ? `${min}min${sec}s` : `${min}min`;
   };
 
   const greeting = () => {
@@ -143,13 +143,13 @@ export default function Home() {
           icon={Clock}
           label="今日学习"
           value={formatTime(todayStats.study_time)}
-          sublabel="分钟"
+          sublabel=""
           color="ink"
         />
         <StatCard
           icon={Flame}
           label="连续打卡"
-          value={`${streak.current_streak}`}
+          value={`${studyDays}`}
           sublabel="天"
           color="amber"
         />

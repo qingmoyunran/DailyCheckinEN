@@ -6,7 +6,8 @@ export type AchievementConditionType =
   | "consecutive_correct"
   | "study_days"
   | "lessons_completed"
-  | "questions_answered";
+  | "questions_answered"
+  | "perfect_course";
 
 export interface Course {
   id: number;

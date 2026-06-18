@@ -69,6 +69,7 @@ export default function Achievements() {
     study_days: "学习坚持",
     lessons_completed: "课时完成",
     questions_answered: "答题数量",
+    perfect_course: "满分挑战",
   };
 
   return (

@@ -24,7 +24,7 @@ export function seedDataIfEmpty(): void {
     course_id: course1Id,
     title: "第一节 短对话（1-5题）",
     script_text: "Text 1\nM: I can't find my suitcase.\nW: Can you describe it, sir? Fill out this form first.\n\nText 2\nM: Sarah, what are you going to do after you graduate?\nW: I plan to do some volunteer work before looking for a job.\n\nText 3\nM: We need to move. This house is too small for our family.\nW: I know. The window in the bedroom is broken, too.\n\nText 4\nM: How was your first skiing experience?\nW: It was fun, but the ski area was a bit crowded.\n\nText 5\nM: Are we going the right way to the Grand Theatre?\nW: I think so. We just passed the Art Centre and the Stone Bridge is behind us.",
-    audio_url: "/audio/2025_national_1.mp3",
+    audio_url: "./audio/2025_national_1.mp3",
     duration: 300,
   });
 
@@ -39,7 +39,7 @@ export function seedDataIfEmpty(): void {
     course_id: course1Id,
     title: "第二节 长对话（6-10题）",
     script_text: "Text 6\nM: Ma'am, I stopped you because you were going over the speed limit.\nW: I'm sorry, officer. I didn't realize.\nM: This is a school zone. The speed limit is 20 miles per hour. School finishes at 2:00 pm on Wednesdays.\nW: I'll be more careful next time.\n\nText 7\nM: Grace? Is that you?\nW: Kevin! What a surprise!\nM: Are you still working at the same company?\nW: No, I changed jobs last year. I'm at Jennifer's firm now.\nM: We should catch up. Would you like to have dinner?\nW: I'd love to, but I'm having dinner with David tonight.\nM: That's okay. I'll just go say hi to a friend over there.",
-    audio_url: "/audio/2025_national_1.mp3",
+    audio_url: "./audio/2025_national_1.mp3",
     duration: 300,
   });
 
@@ -54,7 +54,7 @@ export function seedDataIfEmpty(): void {
     course_id: course1Id,
     title: "第二节 长对话（11-13题）",
     script_text: "Text 8\nM: Have you noticed that there are fewer news programs on TV these days?\nW: Yes. They have been reduced in number. More time is given to reality shows.\nM: I actually enjoy reality shows. They're entertaining.\nW: But I think TV programs should be more educational. They should teach people something useful.",
-    audio_url: "/audio/2025_national_1.mp3",
+    audio_url: "./audio/2025_national_1.mp3",
     duration: 300,
   });
 
@@ -67,7 +67,7 @@ export function seedDataIfEmpty(): void {
     course_id: course1Id,
     title: "第二节 长对话与独白（14-20题）",
     script_text: "Text 9 — School Program\nW: Welcome to our school program, Cathy.\nM: Thank you. Our program invites adults to visit the school and observe classes.\nW: How do students benefit?\nM: They learn about adults' lives and careers. The goal is to enhance school-community interaction.\n\nText 10 — Climate Change Art Project\nOur city is located on the coast. We put up signs with numbers showing the height above sea level. The success of this project indicates that art can make a difference in raising awareness about climate change.",
-    audio_url: "/audio/2025_national_1.mp3",
+    audio_url: "./audio/2025_national_1.mp3",
     duration: 300,
   });
 
@@ -91,7 +91,7 @@ export function seedDataIfEmpty(): void {
     course_id: course2Id,
     title: "第一节 短对话（1-5题）",
     script_text: "Text 1\nW: Excuse me, is this bus going to Baxley?\nM: No. See the yellow taxi on the corner? Turn left there to Madison Street and take Bus No.4.\nW: All right, thank you!\n\nText 2\nM: Just bring us the bill, please.\nW: Right away, sir.\n\nText 3\nW: Dad, I can't afford that computer, but I think I really need it for my research.\nM: Don't worry, Alice. Just pay as much as you can and I'll make up the rest.\n\nText 4\nW: What are you studying?\nM: I study Biology.\n\nText 5\nW: Gee, you broke Mary's sport watch!\nM: I'm so sorry. We'll have it fixed.",
-    audio_url: "/audio/2025_national_2.mp3",
+    audio_url: "./audio/2025_national_2.mp3",
     duration: 300,
   });
 
@@ -105,7 +105,7 @@ export function seedDataIfEmpty(): void {
     course_id: course2Id,
     title: "第二节 长对话（6-10题）",
     script_text: "Text 6\nM: Hi, Delia, this is Peter. Are you doing anything Tuesday evening? I've got two tickets for the National Theatre. Would you like to come?\nW: I'd love to.\nM: Shall I meet you at your office at 6:00?\nW: Sounds great.\n\nText 7\nW: Sam, how's your daughter doing at school?\nM: Since I bought a smartphone for Julia last summer, it seems the phone has become an extension of her arm. And it has made it impossible for her to concentrate.\nW: Has the school done anything about it?\nM: Yes, they've introduced some policies. I'm all in favor of these policies.\nW: That's understandable, honey.",
-    audio_url: "/audio/2025_national_2.mp3",
+    audio_url: "./audio/2025_national_2.mp3",
     duration: 300,
   });
 
@@ -119,7 +119,7 @@ export function seedDataIfEmpty(): void {
     course_id: course2Id,
     title: "第二节 长对话（11-16题）",
     script_text: "Text 8\nM: Billy suggested we go rock climbing.\nW: That sounds exciting! What about Jessie?\nM: She's planning to go rowing on the lake tomorrow.\n\nText 9\nM: I just had a job interview before coming here.\nW: How did it go?\nM: I hope to get a promotion. I'll know the result on Wednesday.\nW: Who is Susanna?\nM: She's my boss.",
-    audio_url: "/audio/2025_national_2.mp3",
+    audio_url: "./audio/2025_national_2.mp3",
     duration: 300,
   });
 
@@ -134,7 +134,7 @@ export function seedDataIfEmpty(): void {
     course_id: course2Id,
     title: "第二节 独白（17-20题）",
     script_text: "Text 10 — Summer Camp\nThe Mini Camp is intended for four-year-olds. The Older Summer Camp organizes bowling games. A requirement for joining the field trips is parental permission. What will the speaker do next? Show a short video.",
-    audio_url: "/audio/2025_national_2.mp3",
+    audio_url: "./audio/2025_national_2.mp3",
     duration: 300,
   });
 
@@ -155,7 +155,7 @@ export function seedDataIfEmpty(): void {
     course_id: course3Id,
     title: "第一节 短对话（1-5题）",
     script_text: "Text 1\nM: Do I need a card to enter the building?\nW: Yes. You'll get your card this afternoon. Now let me show you around and say hello to everyone.\n\nText 2\nW: Would you like some more roast beef? It's the chef's signature dish.\nM: No, thanks. It's really good. But I can't manage any more.\n\nText 3\nW: Hey, look at this one in the newspaper: fishermen fishing at Lake Victoria in Tanzania.\nM: Wow, the unique atmosphere is perfectly caught by the photographer.\n\nText 4\nW: It's almost midnight, Max. You've got a long drive tomorrow.\nM: Okay. Another fifteen minutes from my travel blog. And I'll be done.\n\nText 5\nW: Hello, Mr. Waterman. This is Sarah Jones. I'm stuck on the highway. There's a serious accident. I'm afraid I can't arrive before noon. Could we meet this afternoon?\nM: Okay. I'll see my doctor at one and will be available after two.",
-    audio_url: "/audio/2026_national_1.mp3",
+    audio_url: "./audio/2026_national_1.mp3",
     duration: 300,
   });
 
@@ -169,7 +169,7 @@ export function seedDataIfEmpty(): void {
     course_id: course3Id,
     title: "第二节 长对话（6-10题）",
     script_text: "Text 6\nM: Lisa, you're English, but you live here. What do you love about Copenhagen?\nW: It has everything big cities offer — cafes, theaters, museums — but it is still relaxing and manageable. Unlike London, you don't feel constant pressure here.\nM: Was this lifestyle why you first came?\nW: No, I originally came for a three-month project at a law firm. After finishing it, they offered me a permanent job.\n\nText 7\nM: Hello, this is Mike from Gilbert company. We'd like to book a dinner for next Tuesday.\nW: How many guests and what budget?\nM: Twenty people, thirty pounds per person.\nW: What's the occasion?\nM: It's to honor a staff member who is retiring next month.\nW: Would you like a detailed menu with prices?\nM: Yes. Could you email it to Mike Lee at Gilbert.com?",
-    audio_url: "/audio/2026_national_1.mp3",
+    audio_url: "./audio/2026_national_1.mp3",
     duration: 300,
   });
 
@@ -183,7 +183,7 @@ export function seedDataIfEmpty(): void {
     course_id: course3Id,
     title: "第二节 长对话（11-13题）",
     script_text: "Text 8\nW: The song we've just heard was made with an AI version of Jenny's singing voice.\nM: Jenny announced that she'd let anybody make a song using her AI voice as long as they shared their profits with her. In just a few weeks, more than three hundred new songs were created.\nW: Incredible. This could be an attractive new business model for a pop star.\nM: But some listeners want to hear Jenny's real voice. Now let's play one of her greatest hits: Show me your love.",
-    audio_url: "/audio/2026_national_1.mp3",
+    audio_url: "./audio/2026_national_1.mp3",
     duration: 300,
   });
 
@@ -195,7 +195,7 @@ export function seedDataIfEmpty(): void {
     course_id: course3Id,
     title: "第二节 长对话与独白（14-20题）",
     script_text: "Text 9\nM: Dr. Evans, you just said that these ancient texts are actually the recipes from ancient Babylonia.\nW: Ancient Babylonia is home to many of the things that we use in our cooking today. About fifty percent of the energy you need every day comes from food that originated in this area.\nM: Why have these texts taken so long to come to light?\nW: These ancient texts have been known since the 1920s but were thought to be medical texts. In the 1940s, Mary Hussey suggested that they might be about food. But people didn't believe her until French author Jean Bottero proved it in the 1980s.\n\nText 10\nBefore we begin today's experiment, let's review the lab rules. First, safety glasses must be worn at all times. If any chemical container is knocked over, tell me immediately. We will work in pairs. Switch roles after every three trials to ensure everyone gets practice. If you finish early, clean your workspace thoroughly.",
-    audio_url: "/audio/2026_national_1.mp3",
+    audio_url: "./audio/2026_national_1.mp3",
     duration: 300,
   });
 
