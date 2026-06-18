@@ -17,7 +17,7 @@ const DB_NAME = "daily_checkin_en";
 const STORE_NAME = "sqlite_db";
 const DB_KEY = "database";
 const DB_VERSION_KEY = "daily_checkin_en_version";
-const DB_VERSION = 2; // 递增此值以强制重置数据库
+const DB_VERSION = 3; // 递增此值以强制重置数据库
 
 let db: Database | null = null;
 
@@ -119,7 +119,7 @@ function initSchema(database: Database): void {
 
     CREATE TABLE IF NOT EXISTS achievements (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL,
+      name TEXT NOT NULL UNIQUE,
       description TEXT NOT NULL,
       icon TEXT NOT NULL,
       condition_type TEXT NOT NULL,
