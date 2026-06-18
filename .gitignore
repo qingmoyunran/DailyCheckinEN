@@ -22,3 +22,19 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# IDE generated files
+.trae/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Large binary / media files (not source code)
+TestPaper/
+public/audio/
+*.mp3
+*.wasm
+*.pptx
+*.docx
