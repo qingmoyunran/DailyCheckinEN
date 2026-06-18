@@ -18,7 +18,7 @@ const DB_NAME = "daily_checkin_en";
 const STORE_NAME = "sqlite_db";
 const DB_KEY = "database";
 const DB_VERSION_KEY = "daily_checkin_en_version";
-const DB_VERSION = 5; // 递增此值以强制重置数据库
+const DB_VERSION = 6; // 递增此值以强制重置数据库
 
 let db: Database | null = null;
 
