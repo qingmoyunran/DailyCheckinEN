@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Plus Jakarta Sans", "Noto Sans SC", system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #1a2b4a;
+  background-color: #faf6ee;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #faf6ee;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9d4e8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9db0d1;
+}
+
+/* 纸张纹理背景 */
+.paper-texture {
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(212, 162, 76, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(26, 43, 74, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(107, 158, 120, 0.03) 0%, transparent 50%);
+}
+
+/* 噪点纹理 */
+.noise-overlay {
+  position: relative;
+}
+
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* 渐变文字 */
+.gradient-text {
+  background: linear-gradient(135deg, #1a2b4a 0%, #475f8e 50%, #d4a24c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 卡片阴影 */
+.card-shadow {
+  box-shadow:
+    0 1px 2px rgba(26, 43, 74, 0.04),
+    0 4px 12px rgba(26, 43, 74, 0.06);
+}
+
+.card-shadow-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-shadow-hover:hover {
+  box-shadow:
+    0 4px 8px rgba(26, 43, 74, 0.06),
+    0 12px 24px rgba(26, 43, 74, 0.1);
+  transform: translateY(-2px);
+}
+
+/* 成就徽章发光效果 */
+.achievement-glow {
+  box-shadow:
+    0 0 20px rgba(212, 162, 76, 0.4),
+    0 0 40px rgba(212, 162, 76, 0.2);
+}
+
+/* 波形动画 */
+@keyframes wave {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+
+.wave-bar {
+  animation: wave 1s ease-in-out infinite;
+}
+
+/* 输入框聚焦样式 */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+/* 选中文字样式 */
+::selection {
+  background-color: rgba(212, 162, 76, 0.25);
+  color: #1a2b4a;
+}
